@@ -10,4 +10,9 @@
 https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fcxcxc-io%2Fgcp_basic_architecture_tutorial.git&cloudshell_open_in_editor=cloud_shell_editor_intro.md&cloudshell_workspace=.
 
 
+安裝環境
+```
+sudo pip3 install requirements.txt
+```
+
 

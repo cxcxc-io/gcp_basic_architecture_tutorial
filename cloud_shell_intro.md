@@ -27,15 +27,14 @@ gsutil ls
 # 瀏覽 bucket內，有哪些object
 gsutil ls gs://your-bucket-name/folder/
 
-# 創建一個範例檔案，而後將該檔案上傳 至 指定的bucket內
-touch cxcxc-demo.txt
-gsutil cp cxcxc-demo.txt gs://your-bucket-name/folder/
+# 將準備好的範例網頁，而後將該檔案上傳 至 指定的bucket內
+gsutil cp cxcxc.html gs://your-bucket-name/folder/
 
 # 瀏覽 bucket內，有哪些object
 gsutil ls gs://your-bucket-name/folder/
 
-# 刪除 該object
-gsutil rm gs://your-bucket-name/folder/cxcxc-demo.txt
+# 刪除 該object，範例，先不要用
+# gsutil rm gs://your-bucket-name/folder/object
 
 ```
 

@@ -1,8 +1,10 @@
 # STEP 1
 
+# STEP 2
+
 ### Startup-script
 
-將YOUR-BUCKET與Folder 改為自己先前建立的桶子與資料夾名
+再開一台機器，將YOUR-BUCKET與Folder 改為自己先前建立的桶子與資料夾名
 
 ```
 #!/bin/bash
@@ -13,11 +15,18 @@ gsutil cp gs://YOUR-BUCKET/Folder/cxcxc.html /var/www/html/
 
 ```
 
-# STEP 2
+# STEP 3
 
-再開一台機器，並且不給予Service account，並將下面的開機腳本內的YOUR-BUCKET與Folder 改為自己先前建立的桶子與資料夾名
+對機器進行關機，並更新Startup-script內容，並撤下Service account，並在console內追加label
 
-貼回至Console
+### label內容值
+
+```
+
+METADATA_DEMO : cxcxc
+
+```
+
 
 ### Startup-script
 ```
@@ -32,3 +41,7 @@ ce/attributes/METADATA_DEMO" -H "Metadata-Flavor: Google")
 touch /tmp/$METADATA_DEMO
 
 ```
+
+編輯完成後，再開機
+
+# STEP4

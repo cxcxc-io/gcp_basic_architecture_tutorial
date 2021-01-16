@@ -74,13 +74,55 @@ ls ~/.config/gcloud/
 # Step2
 
 重新安裝一個新的AWS Cloud Shell
-原因是這種登入方式，是GCP不建議的，他希望我們Member都透過service account 調度服務
+
+原因是先前登入方式，是GCP不建議的，
+```
+# 不樂見
+# google auth application-default login
+```
+
+他希望我們Member都透過service account 調度服務
 
 為IAM User設置 可調度service account的role，Service Account User 與 Token Creator兩個權限。
 
 登入新的IAM User，並輸入指令，要求透過先前建置的service account調度gcloud storage
 
+#### 調度SERVICE_ACCOUNT@XXXX.XX的權限去操作cloud storage
 ```
-gcloud compute instances list --impersonate-service-account=cxcxc-cloud-logging-demo@gcp-practice-123.iam.gserviceaccount.com
+gsutil  -i SERVICE_ACCOUNT@XXXX.XX ls gs://YOUR-BUCKET-NAME/
+```
 
+發現這種使用方法，適用於臨時查閱雲端資源，但若我們希望經常使用service account，而不需特別指名 -i
+
+可先切換回IAM Console，為該Service account生成 json檔
+
+在本地端激活，後續可直接如一般調用GCP指令
+```
+# 在本地認證該service account，並透過其json檔調度資源
+gcloud auth activate-service-account SERVICE-ACCOUNT-NAME --key-file=service-account.json
+
+# 訪問桶子
+gsutil ls gs://YOUR-BUCKET-NAME/
+```
+
+## 上面的方式適用於命令列，若還要在本地進行開發，則需將該service-account.json，放置合適位置，並依照下方方式配置
+
+#### 設定環境變數
+```
+export GOOGLE_APPLICATION_CREDENTIALS="[OUR-SERVICE-ACCOUNT-JSON-PATH]"
+
+sudo pip3 install gcloud-cloud-storage
+
+python3
+```
+
+#### 透過python結合service account調度資料
+啟用python3做service account操作
+```
+from google.cloud import storage
+# 發現其可行
+storage_client = storage.Client()
+buckets = storage_client.list_buckets()
+for bucket in buckets:
+    print(bucket.name)
 ```

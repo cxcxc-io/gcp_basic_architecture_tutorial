@@ -9,15 +9,14 @@
 
 https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fcxcxc-io%2Fgcp_basic_architecture_tutorial.git&cloudshell_open_in_editor=cloud_shell_editor_intro.md&cloudshell_workspace=.
 
+## 設置資料夾為工作目錄(optional)
+
+對新增的資料夾點擊右鍵，設置Workspace
 
 ## 先行安裝環境
 ```
-sudo pip3 install requirements.txt
+sudo pip3 install -r requirements.txt
 ```
-
-## 設置資料夾為工作目錄
-
-對新增的資料夾點擊右鍵，設置Workspace
 
 ## 執行 hello_world.py
 
@@ -64,7 +63,7 @@ gcloud config set project {YOUR-PROJECT-ID}
 
 # 下一步教材準備
 
-## 使用命令列，將 cxcxc.html放入先前建置好的Bucket
+## 使用命令列，將 cxcxc.html放入先前建置好的Bucket(optional)
 
 ```
 gsutil cp cxcxc.html gs://YOUR-BUCKET-NAME/FOLDER/

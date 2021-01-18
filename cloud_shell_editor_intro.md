@@ -69,15 +69,15 @@ python3 cloudstorage_integrate_demo.py
 
 #### 打開客製化腳本，並鍵入 i ，開始編輯
 ```
-vim ~/.customize_environment
+vim ~/.bashrc
 ```
 
-#### 將下方Project-ID名更改後，貼入
+#### 將下方Project-ID名更改後，貼入檔案內的最下方
 ```
 gcloud config set project {YOUR-PROJECT-ID}
 ```
 
-#### 點擊右上角功能，重開機
+#### 重新啟用一個terminal
 
 
 #### 運行腳本，發現可瀏覽所有bucket

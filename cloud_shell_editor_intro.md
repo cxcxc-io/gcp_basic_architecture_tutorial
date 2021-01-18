@@ -49,8 +49,6 @@ python3 flask_web_demo.py
 
 在terminal內，使用python3執行cloudstorage_integrate_demo.py
 
-彈跳出網頁連結，發現我方仍可觀看網頁開發結果
-
 ```
 python3 cloudstorage_integrate_demo.py
 

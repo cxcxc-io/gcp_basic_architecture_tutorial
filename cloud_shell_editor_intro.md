@@ -83,9 +83,15 @@ gcloud config set project {YOUR-PROJECT-ID}
 #### 運行腳本，發現可瀏覽所有bucket
 
 
-# 執行integrate_flask_cloudstorage.py
+# Web Server與CloudStorage整合
+
+點開termainl，以python3執行integrate_flask_cloudstorage.py
 
 發現已可編寫一個具備GCP調度能力的WEB應用
+
+```
+python3 integrate_flask_cloudstorage.py
+```
 
 # 下一步教材準備
 

@@ -85,7 +85,9 @@ gcloud config set project {YOUR-PROJECT-ID}
 
 # Web Server與CloudStorage整合
 
-點開termainl，以python3執行integrate_flask_cloudstorage.py
+打開integrate_flask_cloudstorage.py，得知內容是Web server整合 cloud storage
+
+點開terminal，以python3執行integrate_flask_cloudstorage.py
 
 發現已可編寫一個具備GCP調度能力的WEB應用
 

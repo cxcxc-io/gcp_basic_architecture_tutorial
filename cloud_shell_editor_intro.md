@@ -20,13 +20,41 @@ sudo pip3 install -r requirements.txt
 
 ## 執行 hello_world.py
 
-發現Cloud Shell已具備Python3開發環境
+啟用terminal，觀察 Cloud Shell的Python3開發環境
+
+在terminal內，使用python3執行hello_world.py
+
+```
+python3 --version
+
+python3 hello_world.py
+```
 
 ## 執行 flask_web_demo.py
 
+點開flask_web_demo.py，得知其內容是啟用web server
+
+在terminal內，使用python3執行flask_web_demo.py
+
 彈跳出網頁連結，發現我方仍可觀看網頁開發結果
 
+```
+python3 flask_web_demo.py
+
+```
+
 ## 執行 cloudstorage_integrate_demo.py
+
+點開cloudstorage_integrate_demo.py，得知python調度cloudstorage的方式。
+
+在terminal內，使用python3執行cloudstorage_integrate_demo.py
+
+彈跳出網頁連結，發現我方仍可觀看網頁開發結果
+
+```
+python3 cloudstorage_integrate_demo.py
+
+```
 
 發現不能執行，原因在於沒有指定Project
 

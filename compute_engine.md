@@ -25,6 +25,13 @@ gsutil cp gs://YOUR-BUCKET/Folder/cxcxc.html /var/www/html/
 
 ```
 
+訪問外部IP，發現有網頁
+
+瀏覽tmp資料夾，確認沒有cxcxc檔案
+```
+ls /tmp
+```
+
 # STEP 3
 
 對機器進行關機，並更新Startup-script內容，並撤下Service account，並在console內追加label
@@ -32,11 +39,10 @@ gsutil cp gs://YOUR-BUCKET/Folder/cxcxc.html /var/www/html/
 ### label內容值
 
 ```
-
-METADATA_DEMO : cxcxc
+欄位:內容
+METADATA_DEMO:cxcxc
 
 ```
-
 
 ### Startup-script
 ```
@@ -46,13 +52,13 @@ apt-get install -y apache2
 service apache2 start
 gsutil cp gs://YOUR-BUCKET/Folder/cxcxc.html /var/www/html/
 
-METADATA_DEMO=$(curl "http://metadata.google.internal/computeMetadata/v1/instan
-ce/attributes/METADATA_DEMO" -H "Metadata-Flavor: Google")
+METADATA_DEMO=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/attributes/METADATA_DEMO" -H "Metadata-Flavor: Google")
 touch /tmp/$METADATA_DEMO
 
 ```
 
-編輯完成後，再開機
+編輯完成後，再開機，並連入
+
 
 # STEP4
 

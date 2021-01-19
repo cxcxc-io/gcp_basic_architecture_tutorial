@@ -52,7 +52,7 @@
 
 # Compute Engine
 
-請參照 [cloud_engine.md](https://github.com/cxcxc-io/gcp_basic_architecture_tutorial/blob/master/cloud_engine.md) 內的流程指令
+請參照 [compute_engine.md](https://github.com/cxcxc-io/gcp_basic_architecture_tutorial/blob/master/compute_engine.md) 內的流程指令
 
 ## 1.機器建立，並連入系統內，建立網頁伺服器
 

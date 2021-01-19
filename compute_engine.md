@@ -59,13 +59,12 @@ touch /tmp/$METADATA_DEMO
 
 編輯完成後，再開機，並連入
 
-
-# STEP4
-
 連入後，觀察tmp資料夾，發現已有檔案出現
 ```
 ls /tmp
 ```
+
+# STEP4
 
 重新以gsutil訪問桶子，發現沒有service account 不能訪問
 ```

@@ -34,9 +34,9 @@ ls /tmp
 
 # STEP 3
 
-對機器進行關機，並更新Startup-script內容，並撤下Service account，並在console內追加label
+對機器進行關機，並更新Startup-script內容，並撤下Service account，並在console內追加meatadata
 
-### label內容值
+### metadata內容值
 
 ```
 欄位:內容

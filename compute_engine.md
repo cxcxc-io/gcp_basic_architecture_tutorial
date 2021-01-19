@@ -6,7 +6,7 @@
 ```
 sudo apt-get install -y apache2
 sudo service apache2 start
-gsutil cp gs://YOUR-BUCKET/Folder/cxcxc.html /var/www/html/
+sudo gsutil cp gs://YOUR-BUCKET/Folder/cxcxc.html /var/www/html/
 
 ```
 

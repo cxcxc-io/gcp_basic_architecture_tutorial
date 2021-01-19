@@ -1,5 +1,15 @@
 # STEP 1
 
+開機之後，嘗試安裝apache2，並把先前的網頁載入進來，發現Compute Engine也能跟AWS Resource溝通。
+
+連入之後的指令如下
+```
+sudo apt-get install -y apache2
+sudo service apache2 start
+gsutil cp gs://YOUR-BUCKET/Folder/cxcxc.html /var/www/html/
+
+```
+
 # STEP 2
 
 ### Startup-script

@@ -1,6 +1,6 @@
 # STEP 1
 
-開機之後，嘗試安裝apache2，並把先前的網頁載入進來，發現Compute Engine也能跟AWS Resource溝通。
+開機之後，嘗試安裝apache2，並把先前的網頁載入進來，發現Compute Engine也能跟GCP Resource溝通。
 
 連入之後的指令如下
 ```

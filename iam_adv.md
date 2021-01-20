@@ -38,6 +38,7 @@ sudo pip3 install google-cloud-storage
 ```
 gcloud auth application-default login
 gcloud config set project {YOUR-PROJECT-ID}
+export GCLOUD_PROJECT={YOUR-PROJECT-ID}
 ```
 
 #### 啟用python3命令

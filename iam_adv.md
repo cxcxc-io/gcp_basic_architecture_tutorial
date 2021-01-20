@@ -71,7 +71,7 @@ ls ~/.config/gcloud/
 
 
 
-# Step2
+# Step2 - 允許本地用戶可調度專案內的所有Service account
 
 重新安裝一個新的AWS Cloud Shell
 
@@ -92,7 +92,29 @@ ls ~/.config/gcloud/
 gsutil  -i SERVICE_ACCOUNT@XXXX.XX ls gs://YOUR-BUCKET-NAME/
 ```
 
-發現這種使用方法，適用於臨時查閱雲端資源，但若我們希望經常使用service account，而不需特別指名 -i
+# Step3 - 允許用戶使用 特定Service account
+
+
+取消先前用戶可調度Service account的權限，並切換至IAM的服務帳戶功能列
+
+點擊特定服務帳戶，進行編輯，追加用戶的email
+
+並選擇Service account使用者權限，進行儲存
+
+
+#### 調度SERVICE_ACCOUNT@XXXX.XX的權限去操作cloud storage
+```
+gsutil  -i SERVICE_ACCOUNT@XXXX.XX ls gs://YOUR-BUCKET-NAME/
+```
+
+發現成功，同學也可以趁此刻去調度其他服務帳戶的權限，看是不是會有反應。
+
+
+# Step4 - 本地經常性調度Service account
+
+### 經常性調度Service account
+
+先前的使用方法，適用於臨時查閱雲端資源，但若我們希望經常使用service account，而不需特別指名 -i
 
 可先切換回IAM Console，為該Service account生成 json檔
 

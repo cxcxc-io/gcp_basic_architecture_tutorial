@@ -42,6 +42,7 @@ sudo pip3 install google-cloud-storage
 輸入後，會彈跳出連結，要求我方使用google驗證
 ```
 gcloud auth application-default login
+gcloud config set project {YOUR-PROJECT-ID}
 ```
 
 #### 啟用python3命令

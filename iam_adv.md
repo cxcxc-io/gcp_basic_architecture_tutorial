@@ -33,13 +33,8 @@ sudo yum install -y google-cloud-sdk
 sudo pip3 install google-cloud-storage
 ```
 
-#### 回到IAM Console追加用戶
-
-切換到IAM Console，並設定User的權限為Storage管理員
-
-
 #### 在AWS CloudShell 內登入
-輸入後，會彈跳出連結，要求我方使用google驗證
+輸入後，會彈跳出連結，要求我方使用google驗證，以現有管理員登入
 ```
 gcloud auth application-default login
 gcloud config set project {YOUR-PROJECT-ID}

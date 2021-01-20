@@ -81,9 +81,41 @@ ls ~/.config/gcloud/
 # gcloud auth application-default login
 ```
 
+#### 輸入指令編輯，遠端套件庫
+```
+sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
+
+```
+#### 更新遠端套件庫網址
+```
+[google-cloud-sdk]
+name=Google Cloud SDK
+baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+       https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOM
+```
+
+#### 安裝  CloudSDK 與 python套件
+```
+sudo yum install -y google-cloud-sdk
+sudo pip3 install google-cloud-storage
+```
+
+#### 登入新用戶
+```
+gcloud auth login
+gcloud config set project {YOUR-PROJECT-ID}
+```
+
+#### 為新用戶追加權限
+
 他希望我們Member都透過service account 調度服務
 
-為IAM User設置 可調度service account的role，Service Account User 與 Token Creator兩個權限。
+為新的IAM User設置 可調度service account的role，Service Account User 與 Token Creator兩個權限。
 
 登入新的IAM User，並輸入指令，要求透過先前建置的service account調度gcloud storage
 
@@ -91,6 +123,10 @@ ls ~/.config/gcloud/
 ```
 gsutil  -i SERVICE_ACCOUNT@XXXX.XX ls gs://YOUR-BUCKET-NAME/
 ```
+
+#### 調度其他的Service account 試試，發現權限開得很大，什麼Service account  都能調用
+
+
 
 # Step3 - 允許用戶使用 特定Service account
 

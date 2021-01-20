@@ -87,4 +87,8 @@
 
 ## 1.在非GCP的環境內使用User Credential 進行開發 
 
-## 2.用戶透過Service Account 調度雲服務資源，強化本地開發安全性
+## 2.用戶可透過任一Service Account 調度雲服務資源，強化本地開發安全性
+
+## 3.用戶僅能透過指定Service Account調度雲服務資源，具體強化雲端安全
+
+## 4.用戶在本地端經常性調度service account的方式，並進行程式碼開發

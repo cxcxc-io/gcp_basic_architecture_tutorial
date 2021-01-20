@@ -1,4 +1,4 @@
-# Step1
+# Step1 本地用戶使用gcloud
 
 #### 登入AWS Console 充當本地機器
 
@@ -67,8 +67,6 @@ for bucket in buckets:
 ls ~/.config/gcloud/
 
 ```
-
-
 
 
 # Step2 - 允許本地用戶可調度專案內的所有Service account

@@ -33,10 +33,15 @@ sudo yum install -y google-cloud-sdk
 sudo pip3 install google-cloud-storage
 ```
 
+#### 回到IAM Console追加用戶
+
+切換到IAM Console，並設定User的權限為Storage管理員
+
+
 #### 在AWS CloudShell 內登入
 輸入後，會彈跳出連結，要求我方使用google驗證
 ```
-google auth application-default login
+gcloud auth application-default login
 ```
 
 #### 啟用python3命令
@@ -76,7 +81,7 @@ ls ~/.config/gcloud/
 原因是先前登入方式，是GCP不建議的，
 ```
 # 不樂見
-# google auth application-default login
+# gcloud auth application-default login
 ```
 
 他希望我們Member都透過service account 調度服務

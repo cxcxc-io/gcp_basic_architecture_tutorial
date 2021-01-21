@@ -36,6 +36,23 @@ gsutil ls gs://your-bucket-name/folder/
 # 刪除 該object，範例，先不要用
 # gsutil rm gs://your-bucket-name/folder/object
 
+
+
+```
+# 調度那些GCP沒放在Console上的功能
+```
+# 瀏覽 bucket目前的屬性
+gsutil ls -L -b {YOUR-BUCKET-NAME}
+
+# 對桶子設定版本號
+gsutil version set on {YOUR-BUCKET-NAME}
+
+# 瀏覽 bucket目前的屬性
+gsutil ls -L -b {YOUR-BUCKET-NAME}
+
+# 關閉桶子的版本號
+gsutil version set off {YOUR-BUCKET-NAME}
+
 ```
 
 # 變更Cloud Shell的基底環境

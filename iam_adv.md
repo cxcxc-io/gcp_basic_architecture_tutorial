@@ -169,7 +169,7 @@ gsutil ls gs://YOUR-BUCKET-NAME/
 ```
 export GOOGLE_APPLICATION_CREDENTIALS="[OUR-SERVICE-ACCOUNT-JSON-PATH]"
 
-sudo pip3 install gcloud-cloud-storage
+sudo pip3 install google-cloud-storage
 
 python3
 ```

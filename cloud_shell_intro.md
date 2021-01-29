@@ -20,6 +20,14 @@ gcloud config set project {PROJECT_ID}
 
 # 使用gsutil 訪問 cloud storage
 
+不要記指令，只需要記核心名詞，而後丟到Google去快速檢索。
+
+比如 gsutil bucket list  就能馬上找到範例
+
+https://cloud.google.com/storage/docs/listing-buckets
+
+google goo得好， 工程師當到老。
+
 ```
 # 瀏覽 當前專案下所有的bucket
 gsutil ls 

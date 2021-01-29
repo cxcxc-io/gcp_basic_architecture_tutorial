@@ -9,6 +9,13 @@
 
 https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fcxcxc-io%2Fgcp_basic_architecture_tutorial.git&cloudshell_open_in_editor=cloud_shell_editor_intro.md&cloudshell_workspace=.
 
+
+reference: 
+https://cloud.google.com/shell/docs/open-in-cloud-shell#url_parameters
+
+可以嘗試看看抓其他的資料夾，未來可以使用他的container image
+
+
 ## 設置資料夾為工作目錄(optional)
 
 對新增的資料夾點擊右鍵，設置Workspace
@@ -47,6 +54,12 @@ python3 flask_web_demo.py
 
 點開cloudstorage_integrate_demo.py，得知python調度cloudstorage的方式。
 
+程式碼不要記，只需要記住關鍵字
+python list bucket cloud storage
+
+https://cloud.google.com/storage/docs/listing-buckets#storage-list-buckets-python
+
+
 在terminal內，使用python3執行cloudstorage_integrate_demo.py
 
 ```
@@ -68,6 +81,10 @@ python3 cloudstorage_integrate_demo.py
 ### 第二種追加客製腳本，使自動進入專案
 
 #### 打開客製化腳本，並鍵入 i ，開始編輯
+
+https://cloud.google.com/shell/docs/configuring-cloud-shell#gcloud_command-line_tool_preferences
+
+
 ```
 vim ~/.bashrc
 ```

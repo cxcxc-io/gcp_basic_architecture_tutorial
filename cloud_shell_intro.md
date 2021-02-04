@@ -59,7 +59,7 @@ gsutil version set on {YOUR-BUCKET-NAME}
 gsutil ls -L -b {YOUR-BUCKET-NAME}
 
 # 關閉桶子的版本號
-gsutil version set off {YOUR-BUCKET-NAME}
+gsutil versioning set off {YOUR-BUCKET-NAME}
 
 ```
 

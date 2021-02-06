@@ -184,3 +184,40 @@ buckets = storage_client.list_buckets()
 for bucket in buckets:
     print(bucket.name)
 ```
+
+# Step5 OS-Login
+
+這已經算是一個複合式的Lab了。
+
+#### 開一台GCE Instance
+
+記錄下該台GCE Instance 所使用的Service account
+
+#### 在該台instance的 metadata內，追加允許os login
+
+```
+enable-oslogin: TRUE
+```
+
+#### 切換回IAM Console，針對用戶授與權限 
+
+追加新用戶入帳號內，追加秉鴻的email好了。
+
+並授與權限
+
+```
+Compute OS Login or Compute OS Admin Login
+Compute Viewer
+```
+
+#### 切換至Service account 管理畫面
+
+找出該台GCE Instance所使用的Service account
+
+授與秉鴻的email 可以操作該Service account的權限
+
+```
+Service Account User
+```
+
+

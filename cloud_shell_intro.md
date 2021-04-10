@@ -53,7 +53,7 @@ gsutil ls gs://your-bucket-name/folder/
 gsutil ls -L -b {YOUR-BUCKET-NAME}
 
 # 對桶子設定版本號
-gsutil version set on {YOUR-BUCKET-NAME}
+gsutil versioning set on {YOUR-BUCKET-NAME}
 
 # 瀏覽 bucket目前的屬性
 gsutil ls -L -b {YOUR-BUCKET-NAME}

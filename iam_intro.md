@@ -21,6 +21,10 @@ gsutil ls
 
 ## Step 2 
 
+參考資料：
+https://cloud.google.com/iam/docs/conditions-overview
+https://cloud.google.com/iam/docs/conditions-resource-attributes
+
 為Service Account的權限添加Condition
 
 將下列your-bucket-name改為 我方bucket名

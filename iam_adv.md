@@ -36,7 +36,7 @@ sudo pip3 install google-cloud-storage
 #### 在AWS CloudShell 內登入
 輸入後，會彈跳出連結，要求我方使用google驗證，以現有管理員登入
 ```
-gcloud auth application-default login
+gcloud auth application-default login --no-launch-browser
 gcloud config set project {YOUR-PROJECT-ID}
 export GCLOUD_PROJECT={YOUR-PROJECT-ID}
 ```

@@ -208,7 +208,7 @@ enable-oslogin: TRUE
 ```
 Compute OS Login or Compute OS Admin Login
 Compute Viewer
-IAP-secured Tunnel User (可連線到沒有私有IP的機器)
+IAP-secured Tunnel User (可連線到沒有公有IP的機器)
 ```
 
 #### 切換至Service account 管理畫面

@@ -24,7 +24,7 @@ sudo yum install -y google-cloud-sdk
 
 # 登入指令，而後彈跳出一個網址，點擊後，輸入google帳號進行驗證
 # gcloud auth login
-gcloud init
+gcloud init  --console-only
 
 # 設定要操作的專案
 gcloud config set project {PROJECT_ID}

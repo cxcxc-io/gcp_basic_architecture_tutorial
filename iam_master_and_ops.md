@@ -1,6 +1,6 @@
 # Lab1 - Service Account的重複創建
 
-## 建置Service Account
+## 建置Service Account
 
 設定Service account 名字為
 

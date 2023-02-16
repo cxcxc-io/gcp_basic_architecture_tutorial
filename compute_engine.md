@@ -1,27 +1,26 @@
 # STEP 1
 
-開機之後，嘗試安裝apache2，並把先前的網頁載入進來，發現Compute Engine也能跟GCP Resource溝通。
+開機之後，嘗試安裝 男人的浪漫老遊戲，並把先前的網頁載入進來，發現Compute Engine也能跟GCP Resource溝通。
 
 連入之後的指令如下
 ```
-sudo apt-get install -y apache2
-sudo service apache2 start
-sudo gsutil cp gs://YOUR-BUCKET/Folder/cxcxc.html /var/www/html/
-
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo service docker start
+sudo docker run -d --name dosgame -p 80:262 oldiy/dosgame-web-docker:latest
 ```
 
 # STEP 2
 
 ### Startup-script
 
-再開一台機器，將YOUR-BUCKET與Folder 改為自己先前建立的桶子與資料夾名
-
 ```
 #!/bin/bash
 
-apt-get install -y apache2
-service apache2 start
-gsutil cp gs://YOUR-BUCKET/Folder/cxcxc.html /var/www/html/
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+service docker start
+docker run -d --name dosgame -p 80:262 oldiy/dosgame-web-docker:latest
 
 ```
 
@@ -48,9 +47,10 @@ METADATA_DEMO:cxcxc
 ```
 #!/bin/bash
 
-apt-get install -y apache2
-service apache2 start
-gsutil cp gs://YOUR-BUCKET/Folder/cxcxc.html /var/www/html/
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+service docker start
+docker run -d --name dosgame -p 80:262 oldiy/dosgame-web-docker:latest
 
 METADATA_DEMO=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/attributes/METADATA_DEMO" -H "Metadata-Flavor: Google")
 touch /tmp/$METADATA_DEMO

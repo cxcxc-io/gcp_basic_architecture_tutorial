@@ -36,7 +36,6 @@ python3 --version
 
 python3 hello_world.py
 ```
-
 ## 執行 flask_web_demo.py
 
 點開flask_web_demo.py，得知其內容是啟用web server
@@ -47,9 +46,7 @@ python3 hello_world.py
 
 ```
 python3 flask_web_demo.py
-
 ```
-
 ## 執行 cloudstorage_integrate_demo.py
 
 點開cloudstorage_integrate_demo.py，得知python調度cloudstorage的方式。
@@ -118,6 +115,12 @@ python3 integrate_flask_cloudstorage.py
 
 ```
 gsutil cp cxcxc.html gs://YOUR-BUCKET-NAME/FOLDER/
+```
+
+## 假裝我們已經開發完了，軟體的部屬指令如下
+
+```
+docker run -d --name dosgame -p 8080:262 oldiy/dosgame-web-docker:latest
 ```
 
 

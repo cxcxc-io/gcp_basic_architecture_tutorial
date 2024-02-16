@@ -25,6 +25,29 @@
 
 參照講義，按實作圖進行操作，在過程中，老師將會逐步講解Cloud Storage的權限設計內容。
 
+## 3. 利用桶子的快取進行節費
+
+先將下面兩張圖片儲存到本地端
+https://github.com/cxcxc-io/gcp_basic_architecture_tutorial/blob/master/FB%E4%B8%80%E8%88%AC%E5%BB%A3%E5%91%8AV1.png
+https://github.com/cxcxc-io/gcp_basic_architecture_tutorial/blob/master/FB%E4%B8%80%E8%88%AC%E5%BB%A3%E5%91%8AV2.png
+
+確認先前建立桶子的權限是對外公開
+
+上傳第一張照片(FB一般廣告V1.png) 至先前的桶子，並點擊右方三個點，編輯中繼資料，找到Cache-Control的欄位，輸入下方欄位值
+```
+public, max-age=90
+```
+
+儲存後，點擊該物件的公開連結，確認照片的模樣
+
+將第二張照片(FB一般廣告V2.png)的名字改為(FB一般廣告V1.png), 上傳至先前的桶子，並點擊右方三個點，編輯中繼資料，找到Cache-Control的欄位，輸入下方欄位值
+```
+public, max-age=90
+```
+
+按下F12,打開Console，並點擊F5重新整理先前已下載圖片的瀏覽器頁面，發現要等一陣子才會變化
+
+
 # Cloud Shell
 
 請參照 [cloud_shell_intro.md](https://github.com/cxcxc-io/gcp_basic_architecture_tutorial/blob/master/cloud_shell_intro.md) 內的指令

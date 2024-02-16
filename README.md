@@ -28,7 +28,11 @@
 ## 3. 利用桶子的快取進行節費
 
 先將下面兩張圖片儲存到本地端
+
+
 https://github.com/cxcxc-io/gcp_basic_architecture_tutorial/blob/master/FB%E4%B8%80%E8%88%AC%E5%BB%A3%E5%91%8AV1.png
+
+
 https://github.com/cxcxc-io/gcp_basic_architecture_tutorial/blob/master/FB%E4%B8%80%E8%88%AC%E5%BB%A3%E5%91%8AV2.png
 
 確認先前建立桶子的權限是對外公開

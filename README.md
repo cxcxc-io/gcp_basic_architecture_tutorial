@@ -122,6 +122,8 @@ gzip
 
 ## 2.Cloud IAP調度使用，使內網可連線
 
+## 3.建立Cloud NAT, 使限定的內網可連外作訪問
+
 # IAM進階探討
 
 請參照 [iam_adv.md](https://github.com/cxcxc-io/gcp_basic_architecture_tutorial/blob/master/iam_adv.md) 內的流程指令

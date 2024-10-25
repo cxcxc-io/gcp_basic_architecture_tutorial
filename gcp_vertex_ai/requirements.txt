@@ -1,0 +1,5 @@
+flask
+google-cloud-aiplatform
+google-cloud-storage
+gunicorn
+Werkzeug

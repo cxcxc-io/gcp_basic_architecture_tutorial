@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 對話框</title>
+    <script>
+        // 用於維護對話歷史
+        let conversationHistory = [];
+
+        async function sendMessage() {
+            const message = document.getElementById('userMessage').value;
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            if (!message) {
+                alert('請提供文字訊息');
+                return;
+            }
+
+            // 更新對話歷史
+            conversationHistory.push(`你: ${message}`);
+
+            // 如果有圖片，先轉換圖片為 Base64 格式
+            let base64Image = '';
+            if (file) {
+                base64Image = await convertToBase64(file);
+                conversationHistory.push(`你上傳了一張圖片 (Base64)`);
+            }
+
+            // 組合對話歷史作為訊息的一部分
+            const combinedHistory = conversationHistory.join('\n');
+
+            const formData = new FormData();
+            formData.append('message', combinedHistory);
+
+            // 如果有 Base64 圖片，則加入圖片
+            if (base64Image) {
+                formData.append('image_base64', base64Image);
+            }
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+            if (data.error) {
+                alert('Error: ' + data.error);
+            } else {
+                // 更新對話歷史
+                conversationHistory.push(`AI: ${data.message}`);
+                
+                // 顯示所有對話內容
+                document.getElementById('chatOutput').value = conversationHistory.join('\n');
+
+                // 清空輸入框和檔案選擇
+                document.getElementById('userMessage').value = '';
+                fileInput.value = '';
+            }
+        }
+
+        // 將圖片檔案轉換為 Base64 編碼格式
+        function convertToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result.split(',')[1]);
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>AI 對話框</h1>
+    <div>
+        <textarea id="chatOutput" rows="15" cols="60" readonly></textarea>
+    </div>
+    <div>
+        <input type="text" id="userMessage" placeholder="輸入你的訊息">
+        <input type="file" id="fileInput">
+        <button onclick="sendMessage()">送出</button>
+    </div>
+</body>
+</html>

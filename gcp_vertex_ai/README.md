@@ -32,6 +32,13 @@ GCP_VERTEX_AI/
 pip install -r requirements.txt
 ```
 
+### 1-2. 為你的模型添加記憶(Optional)
+
+在vertex ai studio內，添加example之後，選擇Get code，複製裡面的text1，並貼回我方的app.py，替代原有的text1
+
+### 1-3. 打造自己的example(Optional)
+
+準備一個QA 問答知識集 csv， 把qa_converted.json的資料樣本交給gpt，並將csv也交給gpt，進行格式轉換。
 
 ### 2. 建立 .env 檔案
 

@@ -9,6 +9,9 @@ from vertexai.generative_models import GenerativeModel, Part, SafetySetting
 
 app = Flask(__name__)
 
+# 填入你為llm補上的記憶
+text1 = """"""
+
 # 設定上傳檔案的目錄
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -21,7 +24,7 @@ vertexai.init(location="asia-east1")
 BUCKET_NAME = os.environ.get('CLOUD_STORAGE_BUCKET')
 
 # 模型名稱，從環境變數取得，若無則使用預設值
-MODEL_NAME = os.environ.get('MODEL_NAME', 'gemini-1.5-flash-002')
+MODEL_NAME = os.environ.get('MODEL_NAME', "projects/904506393037/locations/asia-east1/endpoints/9016721025437532160")
 
 # Vertex AI 的配置
 generation_config = {
@@ -53,6 +56,7 @@ safety_settings = [
 def index():
     return render_template('index.html')
 
+
 @app.route('/chat', methods=['POST'])
 def chat():
     user_message = request.form.get('message')
@@ -79,10 +83,10 @@ def chat():
             data=image_data
         )
         # 將文字訊息與圖片的 Part 物件一起作為輸入
-        combined_input = [user_message, image_part]
+        combined_input = [text1, user_message, image_part]
     else:
         # 如果沒有圖片，僅使用文字訊息
-        combined_input = [user_message]
+        combined_input = [text1, user_message]
 
     # 使用 Vertex AI 生成回應
     try:
@@ -127,5 +131,5 @@ def save_image_to_bucket(image_data):
     # 返回公開的 URL
     return blob.public_url
 
-# if __name__ == '__main__':
-#     app.run(debug=True,port=5000)
+if __name__ == '__main__':
+    app.run(debug=True,port=5000)

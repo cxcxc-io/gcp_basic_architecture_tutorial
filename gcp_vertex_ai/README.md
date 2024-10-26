@@ -66,17 +66,74 @@ gcloud artifacts repositories create cxcxc-vertex-ai-demo --location=asia-east1 
 ```
 gcloud builds submit --tag asia-east1-docker.pkg.dev/$GOOGLE_CLOUD_PROJECT/cxcxc-vertex-ai-demo/ai-app:0.0.1
 ```
+## 在Compute Engine 部屬的方式
+
+### 1. 建立Service account
+
+建立service account，名字為aigc-demo-sa，並派發以下IAM Role
+
+```
+Storage Admin
+Vertex AI User
+Artifact registry reader
+```
+### 2. 建立機器，選用剛建立的Service-account，並設定防火牆
+
+Service account 選擇 aigc-demo-sa 
+
+Access scopes 選擇 Allow full access to all Cloud APIs
+
+勾選 允許http訪問
+
+
+### 3. 建立機器，設定Startup-script
+```
+#! /bin/bash
+
+# 安裝 Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+service docker start
+
+# 獲取專案 ID
+PROJECT_ID=$(curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/project/project-id")
+
+# 配置 Docker 認證
+gcloud auth configure-docker asia-east1-docker.pkg.dev -q
+
+# 拉取容器映像
+docker pull asia-east1-docker.pkg.dev/$PROJECT_ID/cxcxc-vertex-ai-demo/ai-app:0.0.1
+
+# 從元數據服務獲取 CLOUD_STORAGE_BUCKET
+CLOUD_STORAGE_BUCKET=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/attributes/CLOUD_STORAGE_BUCKET" -H "Metadata-Flavor: Google")
+
+# 從元數據服務獲取 MODEL_NAME，如果未設置則使用默認值
+MODEL_NAME=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/attributes/MODEL_NAME" -H "Metadata-Flavor: Google")
+
+
+# 運行容器
+docker run -p 80:8080 -e PORT=8080 -e MODEL_NAME=$MODEL_NAME -e CLOUD_STORAGE_BUCKET=$CLOUD_STORAGE_BUCKET -d asia-east1-docker.pkg.dev/$PROJECT_ID/cxcxc-vertex-ai-demo/ai-app:0.0.1
+
+```
+### 4. 設定Metadata
+```
+CLOUD_STORAGE_BUCKET=你要存放照片的桶子
+MODEL_NAME=gemini-1.5-flash-002
+```
+
 
 ## 在cloud run 執行的方式
 
-### 1. 建立Service account
+### 1. 建立Service account 或沿用先前的Service account
 
 建立service account，並派發以下IAM Role
 
 ```
 Storage Admin
 Vertex AI User
+Artifact registry reader
 ```
+
 ### 2. 切換至cloud run 進行部屬
 
 

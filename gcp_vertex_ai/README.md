@@ -23,12 +23,16 @@ GCP_VERTEX_AI/
 - `CLOUD_STORAGE_BUCKET`: 用於指定儲存圖片的 Google Cloud Storage bucket 名稱。
 - `MODEL_NAME`: 指定 Vertex AI 模型的名稱，預設為 `gemini-1.5-flash-002`。
 
+
 ## 在cloud shell editor 使用方式
 
-### 1. 安裝必要套件
-首先，確保你已經安裝 `google-cloud-storage` 和 `vertexai` 等 Python 套件。你可以執行以下指令來安裝：
+### 1. 設定Project、安裝必要套件
+
+
+首先點擊左上角Open Folder，指定gcp_vertex_ai為專案資料夾，確保你已經安裝 `google-cloud-storage` 和 `vertexai` 等 Python 套件。你可以執行以下指令來安裝：
 
 ```bash
+gcloud config set project 你的PROJECT-ID
 pip install -r requirements.txt
 ```
 
@@ -40,12 +44,14 @@ pip install -r requirements.txt
 
 準備一個QA 問答知識集 csv， 把qa_converted.json的資料樣本交給gpt，並將csv也交給gpt，進行格式轉換。
 
-### 2. 建立 .env 檔案
+或用我方已準備好的qa_converted.json 上傳給vertex，點集 Get Code，取得裏面的變數text1
 
-在專案根目錄建立 .env 檔案，並設定環境變數，例如：
+### 2. 在開發環境設定環境變數
+
+開啟terminal，並設定環境變數，例如：
 ```
-CLOUD_STORAGE_BUCKET=your-bucket-name
-MODEL_NAME=gemini-1.5-flash-002
+export CLOUD_STORAGE_BUCKET=你的桶子名字
+export Model_NAME=如果想要換自己的模型或是其他模型
 ```
 
 ### 3. 啟動應用程式

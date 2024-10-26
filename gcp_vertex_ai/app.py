@@ -10,7 +10,7 @@ from vertexai.generative_models import GenerativeModel, Part, SafetySetting
 app = Flask(__name__)
 
 # 填入你為llm補上的記憶
-text1 = """"""
+text1 = """ """
 
 # 設定上傳檔案的目錄
 UPLOAD_FOLDER = 'uploads'

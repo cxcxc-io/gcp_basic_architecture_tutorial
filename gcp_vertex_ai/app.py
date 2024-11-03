@@ -24,7 +24,7 @@ vertexai.init(location="asia-east1")
 BUCKET_NAME = os.environ.get('CLOUD_STORAGE_BUCKET')
 
 # 模型名稱，從環境變數取得，若無則使用預設值
-MODEL_NAME = os.environ.get('MODEL_NAME', "projects/904506393037/locations/asia-east1/endpoints/9016721025437532160")
+MODEL_NAME = os.environ.get('MODEL_NAME', "gemini-1.5-flash-002")
 
 # Vertex AI 的配置
 generation_config = {

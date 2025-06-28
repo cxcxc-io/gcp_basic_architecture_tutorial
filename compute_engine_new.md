@@ -16,8 +16,6 @@ sudo docker run -d -p 80:5000 -e PORT=5000 -e METADATA_DEMO=abc  b97607065/gcp_m
 ### Startup-script
 
 ```
-#!/bin/bash
-
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 service docker start
@@ -46,12 +44,9 @@ METADATA_DEMO:cxcxc
 
 ### Startup-script
 ```
-#!/bin/bash
-
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 service docker start
-
 
 METADATA_DEMO=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/attributes/METADATA_DEMO" -H "Metadata-Flavor: Google")
 touch /tmp/$METADATA_DEMO

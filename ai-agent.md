@@ -6,6 +6,7 @@ Vertex AI User
 
 建立GCE，Service account 指定為剛剛建立的Service account，並安裝Dify
 ```
+sudo su
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 service docker start
